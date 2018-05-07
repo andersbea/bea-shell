@@ -1,0 +1,12 @@
+<div class="topbar" role="navigation">
+  <div class="item logo"><a>Bea Shell</a></div>
+  <ul class="list">
+    <li class="item" *ngFor="let item of menuItems">
+      <a>{{item.title}}</a>
+      <div class="subitems" *ngIf="item.subitems">
+        <a *ngFor="let subitem of item.subitems">{{subitem.title}}</a>
+      </div>
+    </li>
+  </ul>
+  <menu-icon></menu-icon>
+</div>

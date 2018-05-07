@@ -1,0 +1,40 @@
+.container {
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px 16px 9px 16px;
+}
+
+.bar {
+    width: 18px;
+    height: 3px;
+    background-color: rgba(0,0,0,0.6);
+    transition: 0.4s;
+}
+
+.top {
+    margin: 0 0 3px 0;
+}
+
+.middle {
+    margin: 3px 0;
+}
+
+.bottom {
+    margin: 3px 0 0 0;
+}
+
+.active {
+    .top {
+        -webkit-transform: translateY(6px) rotate(45deg);
+        transform: translateY(6px) rotate(45deg);
+    }
+    
+    .middle {
+        opacity: 0;
+    }
+    
+    .bottom {
+        -webkit-transform: translateY(-6px) rotate(-45deg);
+        transform: translateY(-6px) rotate(-45deg);
+    }
+} 
