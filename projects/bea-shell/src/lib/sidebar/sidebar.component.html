@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="sidebar" *ngIf="visible">
+      <div class="item logo"><a>Bea Shell</a></div>
+      <ul class="list">
+        <li class="item" *ngFor="let menuItem of menuItems">
+          <i class="fa fa-cube fa-lg" *ngIf="menuItem.icon"></i>
+          <a>{{menuItem.title}}</a>
+        </li>
+        <li class="item divider" role="separator"></li>
+      </ul>
+    </div>
+    <div class="content">
+      <ng-content></ng-content>
+    </div>
+</div>

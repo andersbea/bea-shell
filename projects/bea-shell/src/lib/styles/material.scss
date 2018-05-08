@@ -1,0 +1,19 @@
+
+$font-family: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$font-color: rgba(0,0,0,0.7);
+
+$topbar-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 5px -1px, rgba(0, 0, 0, 0.14) 0px 6px 10px 0px, rgba(0, 0, 0, 0.12) 0px 1px 18px 0px;
+$topbar-background-color: rgb(240,240,240);
+$topbar-height: 54px;
+
+$sidebar-background-color: rgb(240,240,240);
+$sidebar-width: 300px;
+
+.topbar {
+    box-shadow: $topbar-box-shadow;
+}
+
+%a {
+    color: $font-color;
+    font-family: $font-family;
+}
