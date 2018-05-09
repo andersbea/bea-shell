@@ -1,23 +1,44 @@
 
 @import "../styles.scss";
 
-.container {
-    display: grid;
-    grid-template-columns: $sidebar-width auto;
-    width: 100%;
-    height: 100%
-}
-
 .sidebar {
     background-color: $sidebar-background-color;
     box-shadow: $topbar-box-shadow;
-    display: inline-block;
-    width: 100%;
-    padding-top: 8px;
+
+    width: $sidebar-width;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transition: left 0.4s ease-in-out;
+    z-index: $z-index-sidebar-constant;
 }
 
-.logo {
-    display: none;
+.content {
+    margin-top: $topbar-height;
+
+    position: fixed;
+    top: $topbar-height;
+    left: $sidebar-width;
+    bottom: 0;
+    right: 0;
+    z-index: $z-index-content;
+}
+
+.header {
+    padding: 8px 16px;
+    border-bottom: 2px solid rgba(0,0,0,0.1);
+    margin: 0;
+    
+    a {
+        @extend %a;
+
+        display: block;
+        font-size: 15px !important;
+        text-decoration: none;
+        padding: 10px 16px;
+    }
 }
 
 .list {
@@ -34,11 +55,19 @@
     
     a {
         @extend %a;
-
+        
         font-size: 15px !important;
         text-decoration: none;
         padding: 10px 16px;
         transition: 0.2s;
+    }
+
+    &:hover {
+        background-color: rgba(0,0,0,0.3);
+
+        a {
+            color: rgba(255,255,255,0.9);
+        }
     }
 
     i {
@@ -46,25 +75,18 @@
     }
 }
 
-.item:hover {
-    background-color: rgba(0,0,0,0.3);
-
-    a {
-        color: rgba(255,255,255,0.9);
-    }
-}
-
 @media screen and ( max-width: $mobile ){
     .sidebar {
-        display: none; 
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+        z-index: $z-index-sidebar-slidein;
+        
+        &:not(.expanded) {
+            left: -$sidebar-width - 10px;
+        }
+        &.expanded {
+            left: 0;
+        }
     }
-
-    .logo {
-        display: block;
+    .content {
+        left: 0;
     }
 }   

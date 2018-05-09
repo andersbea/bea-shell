@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'menu-icon',
@@ -7,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuIconComponent implements OnInit {
 
-  active: boolean = false;
+  @Input() active: boolean = false;
+  @Output() onchange: EventEmitter<boolean> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
   }
+
+  
 }

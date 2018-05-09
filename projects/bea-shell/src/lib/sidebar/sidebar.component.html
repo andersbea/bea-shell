@@ -1,8 +1,10 @@
-<div class="container">
-    <div class="sidebar" *ngIf="visible">
-      <div class="item logo"><a>Bea Shell</a></div>
+<div class="container" >
+    <div class="sidebar" [class.expanded]="(expanded | async)">
+      <div class="header">
+        <a>Bea Shell</a>
+      </div>
       <ul class="list">
-        <li class="item" *ngFor="let menuItem of menuItems">
+        <li class="item" *ngFor="let menuItem of ( options | async ).menuItems">
           <i class="fa fa-cube fa-lg" *ngIf="menuItem.icon"></i>
           <a>{{menuItem.title}}</a>
         </li>

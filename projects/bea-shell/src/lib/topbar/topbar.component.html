@@ -1,14 +1,16 @@
 <div class="container">
-  <div class="topbar" role="navigation">
-    <div class="item logo"><a>Bea Shell</a></div>
-    <ul class="list">
-      <li class="item" *ngFor="let menuItem of menuItems">
-        <a>{{menuItem.title}}</a>
-        <div class="subitems" *ngIf="menuItem.subitems">
-          <a *ngFor="let subitem of menuItem.subitems">{{subitem.title}}</a>
-        </div>
-      </li>
-    </ul>
-    <menu-icon></menu-icon>
-  </div>
+    <div class="topbar" role="navigation">
+        <div class="logo"><a>Bea Shell</a></div>
+        <div class="menu">
+          <ul class="list">
+            <li class="item" *ngFor="let menuItem of ( options | async ).menuItems">
+              <a>{{menuItem.title}}</a>
+              <div class="subitems" *ngIf="menuItem.subitems">
+                <a *ngFor="let subitem of menuItem.subitems">{{subitem.title}}</a>
+              </div>
+            </li>
+          </ul>
+          <menu-icon [active]="expanded | async" (onchange)="onMenuButtonClick($event)"></menu-icon>
+      </div>
+    </div>
 </div>

@@ -1,16 +1,17 @@
 
 @import "styles.scss";
 
-topbar {
-    position: relative;
-    top: 0;
-}
+// topbar {
+//     position: relative;
+//     top: 0;
+//     z-index: 1;
+// }
 
-sidebar {
-    position: fixed;
-    top: $topbar-height;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-}
+// sidebar {
+//     position: fixed;
+//     top: $topbar-height;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     z-index: -1;
+// }

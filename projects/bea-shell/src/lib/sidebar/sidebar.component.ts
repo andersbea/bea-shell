@@ -1,4 +1,11 @@
+
 import { Component, OnInit } from '@angular/core';
+
+import { BeaShellService } from '@bea-shell/bea-shell.service';
+import { BeaShellOptions, MenuItem, SidebarOptions } from '@bea-shell/common/objects';
+
+import { Subject, Observable, OperatorFunction } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'sidebar',
@@ -7,23 +14,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  visible: boolean = true;
-  
-  menuItems: any[] = [
-    { title: "Home" },
-    { 
-      title: "Pricing", 
-      subitems: [ 
-        { title:"Cheap" },
-        { title:"Expensive" }
-      ] 
-    },
-    { title: "About" }
-  ];  
+  options: Observable<SidebarOptions>;
+  expanded: Subject<boolean>;
 
-  constructor() { }
+  constructor(private beaShell: BeaShellService) { }
 
   ngOnInit() {
+    this.options = this.beaShell.onOptionsChange.pipe(
+      map((options: BeaShellOptions) => options.sidebar)
+    );
+    this.expanded = this.beaShell.onSidebarToggle;
   }
-
 }

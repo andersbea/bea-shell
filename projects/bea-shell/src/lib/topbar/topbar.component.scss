@@ -2,16 +2,41 @@
 @import "../styles.scss";
 
 .container {
+    z-index: $z-index-topbar;
     height: $topbar-height;
+    position: relative;
+    top: 0;
 }
 
 .topbar {
-    margin: 0;
-    padding: 8px 16px;
-    overflow: hidden;
     background-color: $topbar-background-color;
-    display: flex;
-    justify-content: space-between;
+    padding: 8px 16px;
+}
+
+.menu {
+    float: right;
+}
+
+.list {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0;
+}
+
+.logo {
+    display: inline-block;
+    
+    a {
+        @extend %a;
+        display: block;
+
+        text-align: center;
+        padding: 10px 16px;
+        text-decoration: none;
+        cursor: pointer;
+        border-radius: 3px;
+        transition: 0.2s
+    }
 }
 
 .item {
@@ -46,12 +71,6 @@
 
 .item:hover .subitems {
     display: block;
-}
-
-.list {
-    display: inline-block;
-    list-style-type: none;
-    margin: 0;
 }
 
 menu-icon {
