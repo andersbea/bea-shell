@@ -13,30 +13,32 @@ export class AppComponent {
 
   beaShellOptions: BeaShellOptions = {
     topbar: {
+      logo: {
+        title: "Bea Shell"
+      },
       menuItems: [
-        { title: "Home" },
+        { title: "Topbar item" },
         {
-          title: "Pricing",
+          title: "Topbar item with submenu",
           subitems: [
-            { title: "Cheap" },
-            { title: "Expensive" }
+            { title: "Topbar submenu item 1" },
+            { title: "Topbar submenu item 2" }
           ]
         },
-        { title: "About" }
+        { title: "Topbar item with icon" }
       ]
     },
     sidebar: {
+      header: {
+        title: "Header"
+      },
       menuItems: [
-        { title: "bla" },
-        {
-          title: "Pricing",
-          subitems: [
-            { title: "Cheap" },
-            { title: "Expensive" }
-          ]
-        },
-        { title: "About" }
-      ]
+        { title: "Sidebar item 1" },
+        { title: "Sidebar item 2" }
+      ],
+      footer: {
+        title: "Footer"
+      }
     }
   }
 }

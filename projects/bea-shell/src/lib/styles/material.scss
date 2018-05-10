@@ -10,7 +10,15 @@ $sidebar-background-color: rgb(240,240,240);
 $sidebar-width: 300px;
 
 .topbar {
+    height: $topbar-height;
     box-shadow: $topbar-box-shadow;
+    background-color: $topbar-background-color;
+}
+
+.sidebar {
+    width: $sidebar-width;
+    box-shadow: $topbar-box-shadow;
+    background-color: $sidebar-background-color;
 }
 
 %a {

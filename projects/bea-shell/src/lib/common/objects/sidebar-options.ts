@@ -1,10 +1,8 @@
 import { MenuItem } from '@bea-shell/common/objects';
 
 export class SidebarOptions {
-    height?: string
-    width?: string
-    header?: string
-    footer?: string
+    header?: MenuItem
+    footer?: MenuItem
     menuItems?: MenuItem[]
     disabled?: boolean
 }

@@ -1,15 +1,13 @@
 
 @import "../styles.scss";
 
-.container {
+.topbar {
     z-index: $z-index-topbar;
-    height: $topbar-height;
     position: relative;
     top: 0;
 }
 
-.topbar {
-    background-color: $topbar-background-color;
+.topbar-container {
     padding: 8px 16px;
 }
 

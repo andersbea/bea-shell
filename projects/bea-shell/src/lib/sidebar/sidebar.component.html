@@ -1,17 +1,23 @@
-<div class="container" >
-    <div class="sidebar" [class.expanded]="(expanded | async)">
-      <div class="header">
-        <a>Bea Shell</a>
-      </div>
-      <ul class="list">
-        <li class="item" *ngFor="let menuItem of ( options | async ).menuItems">
-          <i class="fa fa-cube fa-lg" *ngIf="menuItem.icon"></i>
-          <a>{{menuItem.title}}</a>
-        </li>
-        <li class="item divider" role="separator"></li>
-      </ul>
+<div class="sidebar" [class.expanded]="(expanded | async)">
+  <div class="header" *ngIf="( options | async ).header">
+    <a>{{( options | async ).header.title}}</a>
+  </div>
+  <ul class="list">
+    <li class="item" *ngFor="let menuItem of ( options | async ).menuItems">
+      <i class="fa fa-cube fa-lg" *ngIf="menuItem.icon"></i>
+      <a>{{menuItem.title}}</a>
+      <!-- <div class="subitems" *ngIf="menuItem.subitems">
+        <a *ngFor="let subitem of menuItem.subitems">{{subitem.title}}</a>
+      </div> -->
+    </li>
+    <li class="item divider" role="separator"></li>
+  </ul>
+  <div class="footer">
+    <div class="footer-container"> 
+        <a>poop</a>
     </div>
-    <div class="content">
-      <ng-content></ng-content>
-    </div>
+  </div>
+</div>
+<div class="content">
+  <ng-content></ng-content>
 </div>

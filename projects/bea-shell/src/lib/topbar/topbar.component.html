@@ -1,6 +1,8 @@
-<div class="container">
-    <div class="topbar" role="navigation">
-        <div class="logo"><a>Bea Shell</a></div>
+<div class="topbar">
+    <div class="topbar-container" role="navigation">
+        <div class="logo" *ngIf="(options | async).logo">
+          <a>{{(options | async).logo.title}}</a>
+        </div>
         <div class="menu">
           <ul class="list">
             <li class="item" *ngFor="let menuItem of ( options | async ).menuItems">
