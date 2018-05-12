@@ -3,38 +3,43 @@
 
 .topbar {
     z-index: $z-index-topbar;
-    position: relative;
+    box-sizing: border-box; 
+    position: fixed;
     top: 0;
+    right: 0;
+    left: 0;
 }
 
 .topbar-container {
+    box-sizing: border-box; 
+    display: table;
     padding: 8px 16px;
-}
-
-.menu {
-    float: right;
-}
-
-.list {
-    display: inline-block;
-    list-style-type: none;
-    margin: 0;
+    width: 100vw;
 }
 
 .logo {
-    display: inline-block;
+    vertical-align: top;
+    display: table-cell;
+    white-space: nowrap;
     
     a {
         @extend %a;
         display: block;
 
-        text-align: center;
         padding: 10px 16px;
         text-decoration: none;
         cursor: pointer;
         border-radius: 3px;
         transition: 0.2s
     }
+}
+
+.menu {
+    vertical-align: top;
+    display: table-cell;
+    text-align: right;
+    white-space: nowrap;
+    overflow: auto;
 }
 
 .item {
@@ -58,6 +63,7 @@
     }
 
     .subitems {
+        
         display: none;
         position: absolute;
         background-color: #f9f9f9;
@@ -75,9 +81,8 @@ menu-icon {
     display: none;
 }
 
-@media screen and ( max-width: $mobile ){
+@media screen and ( max-width: $tablet ){
     .item:not(.logo) { display: none; }
-    .list { width: 0 }
     menu-icon { 
         display: inline-block;
     }

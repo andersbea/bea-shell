@@ -9,12 +9,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class MenuIconComponent implements OnInit {
 
   @Input() active: boolean = false;
-  @Output() onchange: EventEmitter<boolean> = new EventEmitter();
+  @Output() onStateChange: EventEmitter<boolean> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
-  }
-
-  
+  }z
 }

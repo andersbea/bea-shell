@@ -34,7 +34,13 @@ export class AppComponent {
       },
       menuItems: [
         { title: "Sidebar item 1" },
-        { title: "Sidebar item 2" }
+        { 
+          title: "Sidebar item with submenu",
+          subitems: [
+            { title: "Sidebar submenu item 1" },
+            { title: "Sidebar submenu item 2" }
+          ]
+        }
       ],
       footer: {
         title: "Footer"

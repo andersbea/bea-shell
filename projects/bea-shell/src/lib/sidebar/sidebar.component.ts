@@ -17,6 +17,8 @@ export class SidebarComponent implements OnInit {
   options: Observable<SidebarOptions>;
   expanded: Subject<boolean>;
 
+  selected: MenuItem;
+
   constructor(private beaShell: BeaShellService) { }
 
   ngOnInit() {
@@ -24,5 +26,13 @@ export class SidebarComponent implements OnInit {
       map((options: BeaShellOptions) => options.sidebar)
     );
     this.expanded = this.beaShell.onSidebarToggle;
+  }
+
+  onMenuButtonClick(expand){
+    this.beaShell.onSidebarToggle.next(expand);
+  }
+
+  close(){
+    this.beaShell.onSidebarToggle.next(false);
   }
 }
