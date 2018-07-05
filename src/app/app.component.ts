@@ -18,6 +18,21 @@ export class AppComponent {
       },
       menuItems: [
         { title: "Topbar item" },
+        { title: "Topbar item" },
+        { title: "Topbar item" },
+        { title: "Topbar item" },
+        { title: "Topbar item" },
+        { title: "Topbar item" },
+        { title: "Topbar item" },
+        { title: "Topbar item" },
+        { title: "Topbar item" },
+        { title: "Topbar item" },
+        { title: "Topbar item" },
+        { title: "Topbar item" },
+        { title: "Topbar item" },
+        { title: "Topbar item" },
+        { title: "Topbar item" },
+        { title: "Topbar item" },
         {
           title: "Topbar item with submenu",
           subitems: [
@@ -33,7 +48,7 @@ export class AppComponent {
         title: "Header"
       },
       menuItems: [
-        { title: "Sidebar item 1" },
+        { title: "Sidebar item" },
         { 
           title: "Sidebar item with submenu",
           subitems: [

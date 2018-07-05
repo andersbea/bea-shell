@@ -11,30 +11,29 @@
     </div>
   </div>
 
-  <div style="margin-top: 20px"></div>
+    <div class="item-group sidebar-content" 
+          *ngFor="let menuItem of ( options | async ).menuItems">
   
-  <div class="item-group sidebar-content" 
-       *ngFor="let menuItem of ( options | async ).menuItems">
-
-    <div class="item" (click)="selected = (selected === menuItem ? null : menuItem)">
-        <div class="item-title item-content"> 
-          <a class="noselect">{{menuItem.title}}</a>
-        </div>
-        <div class="item-toggle item-content">
-          <i class="options.menuIcon.customClass"
-             *ngIf="menuItem.subitems && ( options | async ).menuIcon && ( options | async ).menuIcon.customClass"></i>
-          <i *ngIf="menuItem.subitems && ( !( options | async ).menuIcon || !( options | async ).menuIcon.disabled )">▼</i>
-        </div>
+      <div class="item" (click)="selected = (selected === menuItem ? null : menuItem)">
+          <div class="item-title item-content"> 
+            <a class="noselect">{{menuItem.title}}</a>
+          </div>
+          <div class="item-toggle item-content">
+            <span class="options.menuIcon.customClass"
+                *ngIf="menuItem.subitems && ( options | async ).menuIcon && ( options | async ).menuIcon.customClass"></span>
+            <span [class.selected]="selected === menuItem" 
+                  *ngIf="menuItem.subitems && ( !( options | async ).menuIcon || !( options | async ).menuIcon.disabled )">▼</span>
+          </div>
+      </div>
+  
+      <div class="sub-items" *ngIf="menuItem.subitems" [class.selected]="selected === menuItem">
+          <div class="item" *ngFor="let subItem of menuItem.subitems">
+              <div class="item-title item-content"> 
+                <a class="noselect">{{menuItem.title}}</a>
+              </div>
+          </div>
+      </div>
     </div>
-
-    <div class="sub-items" *ngIf="menuItem.subitems" [class.selected]="selected === menuItem">
-        <div class="item" *ngFor="let subItem of menuItem.subitems">
-            <div class="item-title item-content"> 
-              <a class="noselect">{{menuItem.title}}</a>
-            </div>
-        </div>
-    </div>
-  </div>
 
   <div class="footer sidebar-content" *ngIf="( options | async ).footer">
     <div class="footer-container"> 

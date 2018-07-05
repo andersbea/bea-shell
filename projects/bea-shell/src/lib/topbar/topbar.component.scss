@@ -14,7 +14,8 @@
     box-sizing: border-box; 
     display: table;
     padding: 8px 16px;
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
 }
 
 .logo {

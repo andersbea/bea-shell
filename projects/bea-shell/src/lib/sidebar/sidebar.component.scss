@@ -9,6 +9,8 @@
     bottom: 0;
     transition: left 0.4s ease-in-out;
     z-index: $z-index-sidebar-constant;
+    overflow: auto;
+
 
     .header {
         display: table;
@@ -45,9 +47,6 @@
 
     .footer {
         border-top: 1px solid rgba(0,0,0,0.1);
-        
-        position: absolute;
-        bottom: 0;
     
         .footer-container {
             padding: 8px 16px;
@@ -89,8 +88,15 @@
             display: table-cell;
             padding: 10px 16px;
             
-            i {
+            span {
+                display:block;
                 color: rgba(0, 0, 0, 0.6);
+                transition: all 0.3s;
+            }
+
+            span.selected {
+                -webkit-transform: rotate(180deg);
+                transform: rotate(180deg);
             }
         }
 
@@ -106,7 +112,7 @@
             color: rgba(255,255,255,0.9);
 
             .item-title a,
-            .item-toggle i {
+            .item-toggle span {
                 color: rgba(255,255,255,0.9);
             }
         }
@@ -116,14 +122,16 @@
         height: 0;
         overflow-y: hidden;
         transition: all 1s ease-in-out;
-        padding-left: 10px;
+
+        .item {
+            padding: 0 26px;
+        }
 
         &.selected {
             height: auto;
         }
     }
 }
-
 
 .content {
     margin-top: $topbar-height;
