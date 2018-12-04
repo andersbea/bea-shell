@@ -18,21 +18,6 @@ export class AppComponent {
       },
       menuItems: [
         { title: "Topbar item" },
-        { title: "Topbar item" },
-        { title: "Topbar item" },
-        { title: "Topbar item" },
-        { title: "Topbar item" },
-        { title: "Topbar item" },
-        { title: "Topbar item" },
-        { title: "Topbar item" },
-        { title: "Topbar item" },
-        { title: "Topbar item" },
-        { title: "Topbar item" },
-        { title: "Topbar item" },
-        { title: "Topbar item" },
-        { title: "Topbar item" },
-        { title: "Topbar item" },
-        { title: "Topbar item" },
         {
           title: "Topbar item with submenu",
           subitems: [
