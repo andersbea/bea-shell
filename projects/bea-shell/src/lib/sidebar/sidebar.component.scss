@@ -5,16 +5,16 @@
     margin-top: $topbar-height;
     position: absolute;
     top: 0;
-    left: 0;
+    &.left{ left: 0; }
+    &.right{ right: 0; }
     bottom: 0;
     transition: left 0.4s ease-in-out;
     z-index: $z-index-sidebar-constant;
     overflow: auto;
 
-
     .header {
         display: table;
-        padding: 8px 16px;
+        padding-top: 8px;
         border-bottom: 1px solid rgba(0,0,0,0.1);
         
         .header-title {
@@ -46,8 +46,10 @@
     }
 
     .footer {
+        position: inherit;
+        bottom: 0;
         border-top: 1px solid rgba(0,0,0,0.1);
-    
+
         .footer-container {
             padding: 8px 16px;
             
@@ -62,86 +64,21 @@
     }
 }
 
-.item-group {
-    cursor: pointer;
-    
-    .item {
-        box-sizing: border-box; 
-        display: table;
-        padding: 0 16px;
-        width: 100%;
-
-        .item-title {
-            display: table-cell;
-
-            a {
-                @extend %a;
-                
-                padding: 10px 16px;
-                font-size: 15px;
-                text-decoration: none;
-                display: block;
-            }
-        }
-
-        .item-toggle {
-            display: table-cell;
-            padding: 10px 16px;
-            
-            span {
-                display:block;
-                color: rgba(0, 0, 0, 0.6);
-                transition: all 0.3s;
-            }
-
-            span.selected {
-                -webkit-transform: rotate(180deg);
-                transform: rotate(180deg);
-            }
-        }
-
-        .item-content {
-            vertical-align: top;
-            box-sizing: border-box; 
-            margin: 0;
-            width: 100%;
-        }
-
-        &:hover {
-            background-color: rgba(0,0,0,0.3);
-            color: rgba(255,255,255,0.9);
-
-            .item-title a,
-            .item-toggle span {
-                color: rgba(255,255,255,0.9);
-            }
-        }
-    }
-    
-    .sub-items {
-        height: 0;
-        overflow-y: hidden;
-        transition: all 1s ease-in-out;
-
-        .item {
-            padding: 0 26px;
-        }
-
-        &.selected {
-            height: auto;
-        }
-    }
-}
-
 .content {
     margin-top: $topbar-height;
 
     box-sizing: border-box; 
     position: fixed;
     top: $topbar-height;
-    left: $sidebar-width;
+    &.left{
+        left: $sidebar-width; 
+        right: 0;
+    }
     bottom: 0;
-    right: 0;
+    &.right{ 
+        left: 0; 
+        right: $sidebar-width;
+    }
     z-index: $z-index-content;
 }
 
@@ -183,6 +120,11 @@ ng-content {
     }
 
     .content {
-        left: 0;
+        &.left{
+            left: 0;
+        }
+        &.right{
+            right: 0;
+        }
     }
 }   

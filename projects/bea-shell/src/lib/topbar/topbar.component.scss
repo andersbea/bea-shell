@@ -18,7 +18,7 @@
     max-width: 100%;
 }
 
-.logo {
+.left {
     vertical-align: top;
     display: table-cell;
     white-space: nowrap;
@@ -35,47 +35,12 @@
     }
 }
 
-.menu {
+.right {
     vertical-align: top;
     display: table-cell;
     text-align: right;
     white-space: nowrap;
     overflow: auto;
-}
-
-.item {
-    display: inline-block;
-
-    a {
-        @extend %a;
-
-        display: block;
-        text-align: center;
-        padding: 10px 16px;
-        text-decoration: none;
-        cursor: pointer;
-        border-radius: 3px;
-        transition: 0.2s
-    }
-
-    a:hover {
-        color: rgba(255,255,255,0.9);
-        background-color: rgba(0,0,0,0.3);
-    }
-
-    .subitems {
-        
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-    }
-}
-
-.item:hover .subitems {
-    display: block;
 }
 
 menu-icon {

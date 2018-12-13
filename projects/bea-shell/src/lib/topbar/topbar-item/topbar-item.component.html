@@ -1,0 +1,20 @@
+<div class="{{menuItem.class}} item">
+  <div *ngIf="menuItem.html">{{menuItem.html}}</div>
+
+  <div *ngIf="menuItem.title || menuItem.icon">
+      <a *ngIf="!menuItem.link" class="item-link">
+        <i *ngIf="menuItem.icon" class="item-icon {{menuItem.icon}}"></i>
+        {{menuItem.title}}
+      </a>
+      <a *ngIf="menuItem.link" class="item-link linked" [routerLink]="menuItem.link"
+        target="{{menuItem.newTab ? '_blank' : ''}}">
+        <i *ngIf="menuItem.icon" class="item-icon {{menuItem.icon}}"></i>
+        {{menuItem.title}}
+      </a>
+
+  </div>
+
+  <div class="subitems" *ngIf="menuItem.subitems">
+    <topbar-item *ngFor="let menuItem of menuItem.subitems" [menuItem]="menuItem"></topbar-item>
+  </div>
+</div>

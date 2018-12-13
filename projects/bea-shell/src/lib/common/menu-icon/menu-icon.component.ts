@@ -14,5 +14,5 @@ export class MenuIconComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }z
+  }
 }

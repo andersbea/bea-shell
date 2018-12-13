@@ -1,49 +1,31 @@
-<div class="sidebar" [class.expanded]="(expanded | async)">
+<div *ngIf="options | async as _options">
+  <div class="sidebar" [ngClass]="_options.placement ? _options.placement : 'left'" [class.expanded]="(expanded | async)">
 
-  <div class="header sidebar-content" >
+    <div class="header sidebar-content">
 
-    <div class="header-title"> 
-      <a *ngIf="( options | async ).header">{{( options | async ).header.title}}</a>
-    </div>
-
-    <div class="header-close-button">
-      <menu-icon [active]="true" (onStateChange)="onMenuButtonClick($event)"></menu-icon>
-    </div>
-  </div>
-
-    <div class="item-group sidebar-content" 
-          *ngFor="let menuItem of ( options | async ).menuItems">
-  
-      <div class="item" (click)="selected = (selected === menuItem ? null : menuItem)">
-          <div class="item-title item-content"> 
-            <a class="noselect">{{menuItem.title}}</a>
-          </div>
-          <div class="item-toggle item-content">
-            <span class="options.menuIcon.customClass"
-                *ngIf="menuItem.subitems && ( options | async ).menuIcon && ( options | async ).menuIcon.customClass"></span>
-            <span [class.selected]="selected === menuItem" 
-                  *ngIf="menuItem.subitems && ( !( options | async ).menuIcon || !( options | async ).menuIcon.disabled )">▼</span>
-          </div>
+      <div *ngFor="let menuItem of _options.header">
+        <sidebar-item [options]="options" [menuItem]="menuItem"></sidebar-item>
       </div>
-  
-      <div class="sub-items" *ngIf="menuItem.subitems" [class.selected]="selected === menuItem">
-          <div class="item" *ngFor="let subItem of menuItem.subitems">
-              <div class="item-title item-content"> 
-                <a class="noselect">{{menuItem.title}}</a>
-              </div>
-          </div>
+
+      <div class="header-close-button">
+        <menu-icon [active]="true" (onStateChange)="onMenuButtonClick($event)"></menu-icon>
       </div>
     </div>
 
-  <div class="footer sidebar-content" *ngIf="( options | async ).footer">
-    <div class="footer-container"> 
-        <a>{{( options | async ).footer.title}}</a>
+    <div class="sidebar-content" *ngFor="let menuItem of _options.menuItems">
+      <sidebar-item [options]="options" [menuItem]="menuItem"></sidebar-item>
+    </div>
+
+    <div class="footer sidebar-content" *ngIf="_options.footer">
+      <div *ngFor="let menuItem of _options.footer">
+        <sidebar-item [options]="options" [menuItem]="menuItem"></sidebar-item>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="closing-box" [class.expanded]="(expanded | async)" (click)="close()"></div>
+  <div class="closing-box" [class.expanded]="(expanded | async)" (click)="close()"></div>
 
-<div class="content">
-  <ng-content></ng-content>
+  <div class="content" [ngClass]="_options.placement ? _options.placement : 'left'">
+    <ng-content></ng-content>
+  </div>
 </div>

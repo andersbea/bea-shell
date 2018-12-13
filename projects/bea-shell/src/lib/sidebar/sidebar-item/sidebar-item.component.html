@@ -1,0 +1,30 @@
+<div class="item-group" *ngIf="options | async as _options">
+    <div class="item" (click)="selected = (selected === menuItem ? null : menuItem)">
+        <div class="item-title item-content">
+
+            <!-- Duplicated to avoid empty href which occurs when setting routerLink without a value -->
+            <a *ngIf="!menuItem.link" class="noselect" (click)="selectItem()">
+                <i *ngIf="menuItem.icon && menuItem.iconPlacement == 'left'" class="item-icon {{menuItem.icon}}"></i>
+                {{menuItem.title}}
+                <i *ngIf="menuItem.icon && menuItem.iconPlacement == 'right'" class="item-icon {{menuItem.icon}}"></i>
+            </a>
+            <a *ngIf="menuItem.link" class="noselect" (click)="selectItem()" [routerLink]="menuItem.link" target="{{menuItem.newTab ? '_blank' : ''}}">
+                <i *ngIf="menuItem.icon && menuItem.iconPlacement == 'left'" class="item-icon {{menuItem.icon}}"></i>
+                {{menuItem.title}}
+                <i *ngIf="menuItem.icon && menuItem.iconPlacement == 'right'" class="item-icon {{menuItem.icon}}"></i>
+            </a>
+
+        </div>
+        <div *ngIf="menuItem.subitems && !_options.menuIcon?.disabled" class="item-toggle item-content">
+            <span class="{{_options.menuIcon?.customClass}}" [class.selected]="selected === menuItem" [class.rotate]="_options.menuIcon?.rotate ? _options.menuIcon.rotate : true"
+                [innerHTML]="_options.menuIcon ? _options.menuIcon.html : '▼'">
+            </span>
+        </div>
+    </div>
+
+    <div class="sub-items" *ngIf="menuItem.subitems" [class.selected]="selected === menuItem">
+        <div *ngFor="let subItem of menuItem.subitems">
+            <sidebar-item [options]="options" [menuItem]="subItem"></sidebar-item>
+        </div>
+    </div>
+</div>

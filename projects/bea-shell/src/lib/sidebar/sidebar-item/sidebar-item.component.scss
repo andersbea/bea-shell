@@ -1,0 +1,76 @@
+
+@import "../../styles.scss";
+
+.item-group {
+    cursor: pointer;
+    
+    .item {
+        box-sizing: border-box; 
+        display: table;
+        width: 100%;
+        transition: background-color 0.3s, color 0.3s;
+
+        .item-title {
+            display: table-cell;
+
+            a {
+                @extend %a;
+                
+                padding: 10px 32px;
+                font-size: 15px;
+                text-decoration: none;
+                display: block;
+            }
+        }
+
+        .item-icon {
+            padding: 0 5px;
+        }
+
+        .item-toggle {
+            display: table-cell;
+            padding: 10px 16px;
+            
+            span {
+                display:block;
+                color: rgba(0, 0, 0, 0.6);
+                transition: all 0.3s;
+            }
+
+            span.selected.rotate {
+                -webkit-transform: rotate(180deg);
+                transform: rotate(180deg);
+            }
+        }
+
+        .item-content {
+            vertical-align: top;
+            box-sizing: border-box; 
+            margin: 0;
+            width: 100%;
+        }
+
+        &:hover {
+            background-color: rgba(0,0,0,0.3);
+            color: rgba(255,255,255,0.9);
+
+            .item-title a,
+            .item-toggle span {
+                color: rgba(255,255,255,0.9);
+            }
+        }
+    }
+    
+    .sub-items {
+        height: 0;
+        overflow-y: hidden;
+        // transition: height 0.5s ease-in-out;
+
+        &.selected {
+            height: auto;
+        
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+    }
+}

@@ -1,18 +1,13 @@
 <div class="topbar">
-  <div class="topbar-container" role="navigation">
+  <div class="topbar-container" role="navigation" *ngIf="options | async as _options">
 
-    <div class="logo" *ngIf="(options | async).logo">
-      <a>{{(options | async).logo.title}}</a>
+    <div class="left">
+      <topbar-item *ngFor="let menuItem of _options.left" [menuItem]="menuItem"></topbar-item>
     </div>
 
-    <div class="menu">
-      <div class="item" *ngFor="let menuItem of ( options | async ).menuItems">
-        <a>{{menuItem.title}}</a>
-        <div class="subitems" *ngIf="menuItem.subitems">
-          <a *ngFor="let subitem of menuItem.subitems">{{subitem.title}}</a>
-        </div>
-      </div>
-      <menu-icon [active]="expanded | async" (onStateChange)="onMenuButtonClick($event)"></menu-icon>
+    <div class="right">
+      <topbar-item *ngFor="let menuItem of _options.right" [menuItem]="menuItem"></topbar-item>
     </div>
+    <menu-icon [active]="expanded | async" (onStateChange)="onMenuButtonClick($event)"></menu-icon>
   </div>
 </div>
