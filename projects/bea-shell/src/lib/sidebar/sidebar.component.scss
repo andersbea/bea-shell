@@ -2,7 +2,10 @@
 @import "../styles.scss";
 
 .sidebar {
-    margin-top: $topbar-height;
+    &.withTopbar {
+        margin-top: $topbar-height;
+    }
+
     position: absolute;
     top: 0;
     &.left{ left: 0; }
@@ -65,7 +68,7 @@
 }
 
 .content {
-    margin-top: $topbar-height;
+    // margin-top: $topbar-height;
 
     box-sizing: border-box; 
     position: fixed;
@@ -89,6 +92,9 @@ ng-content {
 @media screen and ( max-width: $tablet ){
 
     .sidebar {
+        &.withTopbar {
+            margin-top: 0;
+        }
         margin-top: 0;
         z-index: $z-index-sidebar-slidein;
         

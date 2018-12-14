@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ConfigurationComponent } from './configuration/configuration.component';
 
-import { BeaShellModule } from '@bea-shell/bea-shell.module'
+import { BeaShellModule } from '@bea-shell/bea-shell.module';
+import { CheckboxComponent } from './controls/checkbox/checkbox.component'
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,7 +19,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     ConfigurationComponent,
-    HomeComponent
+    HomeComponent,
+    CheckboxComponent
   ],
   imports: [
     BrowserModule,

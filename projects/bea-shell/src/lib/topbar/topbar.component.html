@@ -1,13 +1,13 @@
-<div class="topbar">
-  <div class="topbar-container" role="navigation" *ngIf="options | async as _options">
-
-    <div class="left">
-      <topbar-item *ngFor="let menuItem of _options.left" [menuItem]="menuItem"></topbar-item>
+<div *ngIf="options | async as _options">
+  <div class="topbar" *ngIf="!_options.disabled">
+    <div class="topbar-container" role="navigation">
+      <div class="left">
+        <topbar-item *ngFor="let menuItem of _options.left" [menuItem]="menuItem"></topbar-item>
+      </div>
+      <div class="right">
+        <topbar-item *ngFor="let menuItem of _options.right" [menuItem]="menuItem"></topbar-item>
+      </div>
+      <menu-icon [active]="expanded | async" (onStateChange)="onMenuButtonClick($event)"></menu-icon>
     </div>
-
-    <div class="right">
-      <topbar-item *ngFor="let menuItem of _options.right" [menuItem]="menuItem"></topbar-item>
-    </div>
-    <menu-icon [active]="expanded | async" (onStateChange)="onMenuButtonClick($event)"></menu-icon>
   </div>
 </div>

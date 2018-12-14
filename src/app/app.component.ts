@@ -1,7 +1,8 @@
 
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
 import { BeaShellOptions, MenuItem } from '@bea-shell/common/objects';
+import { BeaShellComponent } from '@bea-shell/bea-shell.component';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,10 @@ import { BeaShellOptions, MenuItem } from '@bea-shell/common/objects';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  @ViewChild(BeaShellComponent)
+  private beaShellComponent: BeaShellComponent;
+
   beaShellOptions: BeaShellOptions = {
     topbar: {
       left: [
@@ -73,5 +78,13 @@ export class AppComponent {
         html: "<i class='fas fa-award'></i>"
       }
     }
+  }
+
+  toggleTopbar(){
+    this.beaShellOptions.topbar.disabled = !this.beaShellOptions.topbar.disabled;
+  }
+  
+  toggleSidebar(){
+    this.beaShellOptions.sidebar.disabled = !this.beaShellOptions.sidebar.disabled;
   }
 }

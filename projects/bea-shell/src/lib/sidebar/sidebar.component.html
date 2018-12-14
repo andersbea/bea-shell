@@ -1,5 +1,6 @@
 <div *ngIf="options | async as _options">
-  <div class="sidebar" [ngClass]="_options.placement ? _options.placement : 'left'" [class.expanded]="(expanded | async)">
+  <div class="sidebar" [ngClass]="_options.placement ? _options.placement : 'left'" [class.expanded]="(expanded | async)"
+    [class.withTopbar]="withTopbar">
 
     <div class="header sidebar-content">
 

@@ -16,6 +16,7 @@ export class SidebarComponent implements OnInit {
 
   options: Observable<SidebarOptions>;
   expanded: Subject<boolean>;
+  withTopbar: boolean;
 
   selected: MenuItem;
 
@@ -26,6 +27,9 @@ export class SidebarComponent implements OnInit {
       map((options: BeaShellOptions) => options.sidebar)
     );
     this.expanded = this.beaShell.onSidebarToggle;
+    this.beaShell.onOptionsChange.subscribe((options: BeaShellOptions) => {
+        this.withTopbar = !options.topbar.disabled;
+      });
   }
 
   onMenuButtonClick(expand){
