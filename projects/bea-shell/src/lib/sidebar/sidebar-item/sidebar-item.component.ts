@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { MenuItem, SidebarOptions } from '@bea-shell/common/objects';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'sidebar-item',
@@ -10,15 +9,18 @@ import { Observable } from 'rxjs';
 })
 export class SidebarItemComponent implements OnInit {
 
-  @Input('options') options: Observable<SidebarOptions>;
+  @Input('options') options: SidebarOptions;
   @Input('menuItem') menuItem: MenuItem;
 
-  constructor() { }
+  selected: boolean;
+
+  constructor() { 
+  }
 
   ngOnInit() {
   }
 
-  selectItem(){
-    
+  select(){
+    this.selected = !this.selected;
   }
 }

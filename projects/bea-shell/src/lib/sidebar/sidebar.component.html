@@ -1,32 +1,29 @@
-<div *ngIf="options | async as _options">
-  <div class="sidebar" [ngClass]="_options.placement ? _options.placement : 'left'" [class.expanded]="(expanded | async)"
-    [class.withTopbar]="withTopbar">
+<div *ngIf="options" class="sidebar" [ngClass]="options.placement ? options.placement : 'left'"
+  [class.alwaysExpandable]="options.alwaysExpandable" [class.expanded]="(expanded | async)" [class.withTopbar]="withTopbar">
 
-    <div class="header sidebar-content">
+  <div class="header sidebar-content">
 
-      <div *ngFor="let menuItem of _options.header">
-        <sidebar-item [options]="options" [menuItem]="menuItem"></sidebar-item>
-      </div>
-
-      <div class="header-close-button">
-        <menu-icon [active]="true" (onStateChange)="onMenuButtonClick($event)"></menu-icon>
-      </div>
-    </div>
-
-    <div class="sidebar-content" *ngFor="let menuItem of _options.menuItems">
+    <div *ngFor="let menuItem of options.header">
       <sidebar-item [options]="options" [menuItem]="menuItem"></sidebar-item>
     </div>
 
-    <div class="footer sidebar-content" *ngIf="_options.footer">
-      <div *ngFor="let menuItem of _options.footer">
-        <sidebar-item [options]="options" [menuItem]="menuItem"></sidebar-item>
-      </div>
+    <div class="header-close-button">
+      <menu-icon [active]="true" (onStateChange)="onMenuButtonClick($event)"></menu-icon>
     </div>
   </div>
 
-  <div class="closing-box" [class.expanded]="(expanded | async)" (click)="close()"></div>
+  <div class="sidebar-content-container">
+    <div class="sidebar-content" *ngFor="let menuItem of options.menuItems">
+      <sidebar-item [options]="options" [menuItem]="menuItem"></sidebar-item>
+    </div>
+  </div>
 
-  <div class="content" [ngClass]="_options.placement ? _options.placement : 'left'">
-    <ng-content></ng-content>
+  <div class="footer sidebar-content" *ngIf="options.footer">
+    <div *ngFor="let menuItem of options.footer">
+      <sidebar-item [options]="options" [menuItem]="menuItem"></sidebar-item>
+    </div>
   </div>
 </div>
+
+<div class="closing-box" [class.expanded]="(expanded | async)" [class.alwaysExpandable]="options.alwaysExpandable"
+  (click)="close()"></div>

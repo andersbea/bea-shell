@@ -9,11 +9,12 @@ export class MenuItem {
     subitems?: MenuItem[]
 
     // Appearance
-    class?: string;
-    visibility?: Visibility[];
-    iconPlacement?: 'left' | 'right';
+    class?: string
+    visibility?: Visibility[]
+    iconPlacement?: 'left' | 'right'
 
     // Routing
     link?: string
-    newTab?: boolean;
+    href?: string
+    newTab?: boolean
 }

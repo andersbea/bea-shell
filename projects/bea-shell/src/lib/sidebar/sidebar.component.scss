@@ -1,39 +1,39 @@
-
 @import "../styles.scss";
-
 .sidebar {
     &.withTopbar {
         margin-top: $topbar-height;
     }
-
-    position: absolute;
+    position: fixed;
     top: 0;
-    &.left{ left: 0; }
-    &.right{ right: 0; }
+    &.left {
+        left: 0;
+    }
+    &.right {
+        right: 0;
+    }
     bottom: 0;
-    transition: left 0.4s ease-in-out;
+    transition: left 0.4s ease-in-out,
+    right 0.4s ease-in-out;
     z-index: $z-index-sidebar-constant;
     overflow: auto;
+    display: flex;
+    flex-direction: column;
 
     .header {
         display: table;
         padding-top: 8px;
-        border-bottom: 1px solid rgba(0,0,0,0.1);
-        
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         .header-title {
             vertical-align: top;
             display: table-cell;
             white-space: nowrap;
-
             a {
                 @extend %a;
-        
                 display: block;
                 text-decoration: none;
                 padding: 10px 16px;
             }
         }
-
         .header-close-button {
             vertical-align: top;
             display: none;
@@ -42,23 +42,20 @@
         }
     }
 
+    .sidebar-content-container {
+        flex-grow: 1;
+    }
     .sidebar-content {
-        box-sizing: border-box; 
+        box-sizing: border-box;
         margin: 0;
         width: 100%;
     }
-
     .footer {
-        position: inherit;
-        bottom: 0;
-        border-top: 1px solid rgba(0,0,0,0.1);
-
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
         .footer-container {
             padding: 8px 16px;
-            
             a {
                 @extend %a;
-        
                 display: block;
                 text-decoration: none;
                 padding: 10px 16px;
@@ -67,70 +64,72 @@
     }
 }
 
-.content {
-    // margin-top: $topbar-height;
-
-    box-sizing: border-box; 
-    position: fixed;
-    top: $topbar-height;
-    &.left{
-        left: $sidebar-width; 
-        right: 0;
-    }
+.closing-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     bottom: 0;
-    &.right{ 
-        left: 0; 
-        right: $sidebar-width;
-    }
-    z-index: $z-index-content;
+    transition: all 0.2s;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: $z-index-sidebar-closing-box;
 }
 
-ng-content {
-    box-sizing: border-box; 
-}
-
-@media screen and ( max-width: $tablet ){
-
-    .sidebar {
+.alwaysExpandable {
+    &.sidebar {
         &.withTopbar {
             margin-top: 0;
         }
         margin-top: 0;
         z-index: $z-index-sidebar-slidein;
-        
-        &:not(.expanded) {
+
+        &.left:not(.expanded) {
             left: -$sidebar-width - 10px;
         }
-        &.expanded {
+        &.left.expanded {
             left: 0;
+        }
+        &.right:not(.expanded) {
+            right: -$sidebar-width - 10px;
+        }
+        &.right.expanded {
+            right: 0;
         }
         
         .header .header-close-button {
             display: table-cell;
         }
     }
-
-    .closing-box {
-        transition: all 0.2s;
-        background-color: rgba(0,0,0,0.0);
+    &.closing-box.expanded {
+        display: block;
     }
+}
 
-    .closing-box.expanded {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: $z-index-sidebar-closing-box;
-        background-color: rgba(0,0,0,0.3);
-    }
-
-    .content {
-        &.left{
+@media screen and ( max-width: $tablet) {
+    .sidebar {
+        &.withTopbar {
+            margin-top: 0;
+        }
+        margin-top: 0;
+        z-index: $z-index-sidebar-slidein;
+        &.left:not(.expanded) {
+            left: -$sidebar-width - 10px;
+        }
+        &.left.expanded {
             left: 0;
         }
-        &.right{
+        &.right:not(.expanded) {
+            right: -$sidebar-width - 10px;
+        }
+        &.right.expanded {
             right: 0;
         }
+        .header .header-close-button {
+            display: table-cell;
+        }
     }
-}   
+    .closing-box.expanded {
+        display: block;
+    }
+}

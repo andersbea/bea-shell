@@ -1,13 +1,15 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <bea-shell [options]="beaShellOptions">
   <div class="container">
     <div class="controls">
       <h1></h1>
       <p></p>
       <h2>Topbar</h2>
-      <button [class.selected]="beaShellOptions.topbar.disabled" (click)="toggleTopbar()">Toggle</button>
+      <button [class.selected]="beaShellOptions.topbar.disabled" (click)="toggleTopbarDisabled()">Disable</button>
       <h2>Sidebar</h2>
-      <button [class.selected]="beaShellOptions.sidebar.disabled" (click)="toggleSidebar()">Toggle</button>
+      <button [class.selected]="beaShellOptions.sidebar.disabled" (click)="toggleSidebarDisabled()">Disable</button>
+      <button [class.selected]="beaShellOptions.sidebar.placement == 'right'" (click)="toggleSidebarPlacement()">Placement</button>
+      <button [class.selected]="beaShellOptions.sidebar.alwaysExpandable" (click)="toggleSidebarAlwaysExpandable()">AlwaysExpandable</button>
+      <button (click)="expandSidebar()">Expand</button>
     </div>
     <div>
       <router-outlet></router-outlet>

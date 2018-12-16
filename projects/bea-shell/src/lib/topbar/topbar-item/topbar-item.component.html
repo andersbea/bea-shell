@@ -1,20 +1,8 @@
-<div class="{{menuItem.class}} item">
+<div class="item-group" [ngClass]="menuItem.class">
   <div *ngIf="menuItem.html">{{menuItem.html}}</div>
-
-  <div *ngIf="menuItem.title || menuItem.icon">
-      <a *ngIf="!menuItem.link" class="item-link">
-        <i *ngIf="menuItem.icon" class="item-icon {{menuItem.icon}}"></i>
-        {{menuItem.title}}
-      </a>
-      <a *ngIf="menuItem.link" class="item-link linked" [routerLink]="menuItem.link"
-        target="{{menuItem.newTab ? '_blank' : ''}}">
-        <i *ngIf="menuItem.icon" class="item-icon {{menuItem.icon}}"></i>
-        {{menuItem.title}}
-      </a>
-
-  </div>
-
+  <menu-item [barClass]="'topbar-item'" [menuItem]="menuItem" [menuIcon]="menuIcon" (click)=select(menuItem)></menu-item>
   <div class="subitems" *ngIf="menuItem.subitems">
-    <topbar-item *ngFor="let menuItem of menuItem.subitems" [menuItem]="menuItem"></topbar-item>
+    <menu-item *ngFor="let menuItem of menuItem.subitems" [barClass]="'topbar-subitem'" [menuItem]="menuItem"
+      [menuIcon]="menuIcon" (click)=select(menuItem)></menu-item>
   </div>
 </div>

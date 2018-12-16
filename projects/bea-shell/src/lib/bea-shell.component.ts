@@ -11,13 +11,30 @@ import { BeaShellOptions } from '@bea-shell/common/objects';
 })
 export class BeaShellComponent implements OnInit {
 
-  @Input('options') 
+  private _options: BeaShellOptions;
+  withTopbar: boolean;
+  withSidebar: boolean;
+
+  beaShell: BeaShellService;
+
+  @Input('options')
   set options(options: BeaShellOptions) {
-    this.beaShell.onOptionsChange.next(options);
+    this._options = options;
+  }
+  get options() {
+    return this._options;
   }
 
-  constructor(private beaShell: BeaShellService) { }
+  constructor(private _beaShell: BeaShellService) {
+    this.beaShell = _beaShell;
+  }
 
   ngOnInit() {
+  }
+
+  ngDoCheck() {
+    this.withTopbar = !this.options.topbar.disabled;
+    this.withSidebar = !this.options.sidebar.disabled;
+    this.beaShell.setOptions(this.options);
   }
 }

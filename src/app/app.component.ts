@@ -25,7 +25,6 @@ export class AppComponent {
       right: [
         { 
           title: "Getting started",
-          link: "home",
           subitems: [
             { title: "Installing" },
             { 
@@ -39,19 +38,15 @@ export class AppComponent {
           icon: "fas fa-award",
         },
         {
-          title: "Topbar item with submenu",
-          link: "https://github.com/andersbea/bea-shell/projects/1",
-          subitems: [
-            { title: "Topbar submenu item 1" },
-            { title: "Topbar submenu item 2" }
-          ],
+          icon: "fab fa-github",
+          href: "https://github.com/andersbea/bea-shell/projects/1",
+          class: "github-icon"
         }
       ]
     },
     sidebar: {
       header: [
         { title: "Header" },
-        { title: "Item" },
       ],
       menuItems: [
         { title: "Item" },
@@ -80,11 +75,26 @@ export class AppComponent {
     }
   }
 
-  toggleTopbar(){
+  toggleTopbarDisabled(){
     this.beaShellOptions.topbar.disabled = !this.beaShellOptions.topbar.disabled;
   }
   
-  toggleSidebar(){
+  toggleSidebarDisabled(){
     this.beaShellOptions.sidebar.disabled = !this.beaShellOptions.sidebar.disabled;
+  }
+  toggleSidebarPlacement(){
+    let placement: 'left' | 'right' = 'left';
+    if(this.beaShellOptions.sidebar.placement == 'left')
+      placement = 'right';
+    this.beaShellOptions.sidebar.placement = placement;
+  }
+  toggleSidebarAlwaysExpandable(){
+    this.beaShellOptions.sidebar.alwaysExpandable = !this.beaShellOptions.sidebar.alwaysExpandable;
+  }
+  expandSidebar(){
+    this.beaShellComponent.beaShell.expandSidebar();
+  }
+  retractSidebar(){
+    this.beaShellComponent.beaShell.retractSidebar();
   }
 }

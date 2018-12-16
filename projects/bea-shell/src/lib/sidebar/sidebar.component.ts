@@ -4,8 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { BeaShellService } from '@bea-shell/bea-shell.service';
 import { BeaShellOptions, MenuItem, SidebarOptions } from '@bea-shell/common/objects';
 
-import { Subject, Observable, OperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'sidebar',
@@ -14,7 +13,7 @@ import { map } from 'rxjs/operators';
 })
 export class SidebarComponent implements OnInit {
 
-  options: Observable<SidebarOptions>;
+  options: SidebarOptions;
   expanded: Subject<boolean>;
   withTopbar: boolean;
 
@@ -23,20 +22,19 @@ export class SidebarComponent implements OnInit {
   constructor(private beaShell: BeaShellService) { }
 
   ngOnInit() {
-    this.options = this.beaShell.onOptionsChange.pipe(
-      map((options: BeaShellOptions) => options.sidebar)
-    );
-    this.expanded = this.beaShell.onSidebarToggle;
-    this.beaShell.onOptionsChange.subscribe((options: BeaShellOptions) => {
+    this.beaShell.onOptionsChange
+      .subscribe((options: BeaShellOptions) => {
+        this.options = options.sidebar;
         this.withTopbar = !options.topbar.disabled;
       });
+    this.expanded = this.beaShell.onSidebarToggle;
   }
 
-  onMenuButtonClick(expand){
+  onMenuButtonClick(expand) {
     this.beaShell.onSidebarToggle.next(expand);
   }
 
-  close(){
+  close() {
     this.beaShell.onSidebarToggle.next(false);
   }
 }

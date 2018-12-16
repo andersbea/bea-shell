@@ -2,8 +2,10 @@
 @import "../styles.scss";
 
 .topbar {
-    z-index: $z-index-topbar;
     box-sizing: border-box; 
+    position: fixed;
+    left: 0;
+    right: 0;
 }
 
 .topbar-container {

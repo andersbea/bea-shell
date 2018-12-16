@@ -1,4 +1,6 @@
-<topbar></topbar>
-<sidebar>
+<topbar *ngIf="!options?.topbar || !options?.topbar?.disabled"></topbar>
+<sidebar *ngIf="!options?.sidebar || !options?.sidebar?.disabled"></sidebar>
+<content [class.withTopbar]="withTopbar" [class.withSidebar]="withSidebar" [class.alwaysExpandable]="options?.sidebar?.alwaysExpandable"
+    [ngClass]="options?.sidebar?.placement ? options.sidebar.placement : 'left'">
     <ng-content></ng-content>
-</sidebar>
+</content>

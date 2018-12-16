@@ -6,5 +6,6 @@ export class SidebarOptions {
     footer?: MenuItem[]
     menuIcon?: MenuIcon
     disabled?: boolean
-    placement?: 'left' | 'right';
+    alwaysExpandable?: boolean = false
+    placement?: 'left' | 'right'
 }

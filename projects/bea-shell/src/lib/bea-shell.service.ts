@@ -11,17 +11,24 @@ export class BeaShellService {
 
   public onMenuItemClick: Subject<MenuItem> = new BehaviorSubject<MenuItem>(null);
   public onMenuItemDoubleClick: Subject<MenuItem> = new BehaviorSubject<MenuItem>(null);
-  
+
   public onMenuButtonClick: Subject<boolean> = new BehaviorSubject<boolean>(false);
 
   public onSidebarToggle: Subject<boolean> = new BehaviorSubject<boolean>(false);
 
   public onOptionsChange: Subject<BeaShellOptions> = new BehaviorSubject<BeaShellOptions>(null);
 
-  constructor() { 
+  constructor() {
   }
-  
-  setOptions(options: BeaShellOptions){
+
+  setOptions(options: BeaShellOptions) {
     this.onOptionsChange.next(options);
+  }
+
+  expandSidebar() {
+    this.onSidebarToggle.next(true);
+  }
+  retractSidebar() {
+    this.onSidebarToggle.next(false);
   }
 }

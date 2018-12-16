@@ -7,11 +7,11 @@ $laptop: 1024px;
 $monitor: 1024px;
 $television: 2560px;
 
-$z-index-sidebar-slidein: 5;
-$z-index-sidebar-closing-box: 4;
-$z-index-topbar: 3;
+$z-index-topbar: 5;
+$z-index-sidebar-slidein: 4;
+$z-index-sidebar-closing-box: 3;
 $z-index-sidebar-constant: 2;
-$z-index-content: 1;
+$z-index-content: -1;
 
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */

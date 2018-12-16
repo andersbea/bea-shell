@@ -1,2 +1,33 @@
-
 @import "styles.scss";
+content {
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: $z-index-content;
+    &.withTopbar {
+        top: $topbar-height;
+    }
+    &.withSidebar:not(.alwaysExpandable) {
+        &.left {
+            left: $sidebar-width;
+        }
+        &.right {
+            right: $sidebar-width;
+        }
+    }
+}
+
+@media screen and ( max-width: $tablet) {
+    content.withSidebar,
+    content.withSidebar:not(.alwaysExpandable) {
+        &.left {
+            left: 0;
+        }
+        &.right {
+            right: 0;
+        }
+    }
+}
