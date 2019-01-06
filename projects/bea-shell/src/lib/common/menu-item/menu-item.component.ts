@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { MenuItem, MenuIcon } from '@bea-shell/common/objects';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'menu-item',
@@ -15,11 +16,20 @@ export class MenuItemComponent implements OnInit {
   placement: string;
   selected: boolean;
 
-  constructor() { }
+  constructor(private _router: Router) { }
 
   ngOnInit() {
     if (this.menuItem.icon) {
       this.placement = this.menuItem.iconPlacement == 'right' ? 'right' : 'left';
+    }
+  }
+
+  click(menuItem: MenuItem){
+    if(menuItem.href){
+      window.open(menuItem.href, menuItem.newTab ? '_blank' : '_self');
+    }
+    if(menuItem.link){
+      this._router.navigate([menuItem.link]);
     }
   }
 }

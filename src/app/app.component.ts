@@ -19,7 +19,8 @@ export class AppComponent {
       left: [
         { 
           title: "Bea Shell",
-          link: "home"
+          link: "home",
+          image: "assets/bea-shell-icon.png"
         }
       ],
       right: [
@@ -40,6 +41,7 @@ export class AppComponent {
         {
           icon: "fab fa-github",
           href: "https://github.com/andersbea/bea-shell/projects/1",
+          newTab: true,
           class: "github-icon"
         }
       ]

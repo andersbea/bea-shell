@@ -2,21 +2,14 @@
 
 <div class="item" [ngClass]="barClass" (click)="selected = !selected" [class.linked]="menuItem.href || menuItem.link || menuItem.subitems">
   <div class="item-content item-title">
-    <a *ngIf="!menuItem.link && !menuItem.href" class="noselect">
-      <i *ngIf="placement == 'left'" class="item-icon {{menuItem.icon}}"></i>
-      {{menuItem.title}}
-      <i *ngIf="placement == 'right'" class="item-icon {{menuItem.icon}}"></i>
-    </a>
-    <a *ngIf="menuItem.href && !menuItem.link" class="noselect" href="menuItem.href" target="{{menuItem.newTab ? '_blank' : ''}}">
-      <i *ngIf="placement == 'left'" class="item-icon {{menuItem.icon}}"></i>
-      {{menuItem.title}}
-      <i *ngIf="placement == 'right'" class="item-icon {{menuItem.icon}}"></i>
-    </a>
-    <a *ngIf="menuItem.link && !menuItem.href" class="noselect" [routerLink]="menuItem.link">
-      <i *ngIf="placement == 'left'" class="item-icon {{menuItem.icon}}"></i>
-      {{menuItem.title}}
-      <i *ngIf="placement == 'right'" class="item-icon {{menuItem.icon}}"></i>
-    </a>
+    <img *ngIf="menuItem.image" [src]="menuItem.image">
+    <div>
+      <a class="noselect" (click)="click(menuItem)">
+        <i *ngIf="placement == 'left'" class="item-icon {{menuItem.icon}}"></i>
+        {{menuItem.title}}
+        <i *ngIf="placement == 'right'" class="item-icon {{menuItem.icon}}"></i>
+      </a>
+    </div>
   </div>
   <div class="item-content item-toggle" *ngIf="menuItem.subitems && !menuIcon?.disabled">
     <span class="{{menuIcon?.customClass}}" [class.selected]="selected" [class.rotate]="menuIcon?.rotate ? menuIcon.rotate : true"

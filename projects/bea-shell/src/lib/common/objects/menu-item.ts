@@ -6,6 +6,7 @@ export class MenuItem {
     title?: string
     html?: string
     icon?: string
+    image?: string
     subitems?: MenuItem[]
 
     // Appearance

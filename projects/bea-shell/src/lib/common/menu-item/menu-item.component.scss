@@ -73,7 +73,12 @@
     }
     a {
         @extend %a;
+        display: inline-block;
         text-decoration: none;
         transition: 0.2s;
+    }
+    img {
+        max-height: $topbar-height - 15px;
+        display: inline-block;
     }
 }
