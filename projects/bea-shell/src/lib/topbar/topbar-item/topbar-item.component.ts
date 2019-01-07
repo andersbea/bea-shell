@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 
-import { MenuItem, MenuIcon } from '@bea-shell/common/objects';
+import { MenuItem } from '@bea-shell/common/objects';
 
 @Component({
   selector: 'topbar-item',
@@ -10,7 +10,6 @@ import { MenuItem, MenuIcon } from '@bea-shell/common/objects';
 export class TopbarItemComponent implements OnInit {
 
   @Input("menuItem") menuItem: MenuItem;
-  @Input("menuIcon") menuIcon: MenuIcon;
 
   constructor() { }
 

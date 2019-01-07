@@ -2,22 +2,26 @@
 
 body {
     margin: 0;
-    font-family: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-family: Roboto, sans-serif;
 }
 
 button {
-    background: none;
-    border-radius: 10px;
-    border: 3px solid rgb(51, 154, 240);
-    color: gray;
+    border-radius: 4px;
     font-weight: bold;
     padding: 10px;
-    outline: none;
+    margin: 2px;
     transition: all 0.3s;
+    outline: none;
+
+    border: none;
+    background: rgb(98,0,238);
+    color: white;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
 
     &.selected {
-        background: rgb(51, 154, 240);
-        color: white;
+        background: transparent;
+        color: rgb(98,0,238);
+        border: 2px, solid, rgb(98,0,238)
     }
 }
 

@@ -1,8 +1,7 @@
 <div class="item-group" [ngClass]="menuItem.class">
   <div *ngIf="menuItem.html">{{menuItem.html}}</div>
-  <menu-item [barClass]="'topbar-item'" [menuItem]="menuItem" [menuIcon]="menuIcon" (click)=select(menuItem)></menu-item>
+  <menu-item [barClass]="'topbar-item'" [menuItem]="menuItem" (click)=select(menuItem)></menu-item>
   <div class="subitems" *ngIf="menuItem.subitems">
-    <menu-item *ngFor="let menuItem of menuItem.subitems" [barClass]="'topbar-subitem'" [menuItem]="menuItem"
-      [menuIcon]="menuIcon" (click)=select(menuItem)></menu-item>
+    <menu-item *ngFor="let menuItem of menuItem.subitems" [barClass]="'topbar-subitem'" [menuItem]="menuItem" (click)=select(menuItem)></menu-item>
   </div>
 </div>

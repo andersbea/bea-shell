@@ -71,7 +71,7 @@ export class AppComponent {
         { title: "Footer" }
       ],
       placement: "left",
-      menuIcon: {
+      submenuIcon: {
         html: "<i class='fas fa-award'></i>"
       }
     }

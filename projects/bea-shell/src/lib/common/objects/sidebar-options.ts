@@ -1,10 +1,10 @@
-import { MenuIcon, MenuItem } from '@bea-shell/common/objects';
+import { SubmenuIcon, MenuItem } from '@bea-shell/common/objects';
 
 export class SidebarOptions {
     header?: MenuItem[]
     menuItems?: MenuItem[]
     footer?: MenuItem[]
-    menuIcon?: MenuIcon
+    submenuIcon?: SubmenuIcon
     disabled?: boolean
     alwaysExpandable?: boolean = false
     placement?: 'left' | 'right'

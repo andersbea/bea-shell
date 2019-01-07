@@ -1,10 +1,13 @@
 @import "../../styles.scss";
-.topbar-item.item {
-    display: inline-block;
-}
+// .topbar-item.item {
+//     display: inline-block;
+// }
 
 .topbar-item.item,
 .topbar-subitem {
+    .item-toggle {
+        display: none;
+    }
     a {
         display: block;
         text-align: center;
@@ -13,9 +16,6 @@
     .item-icon {
         padding: 0 5px;
     }
-    .item-toggle {
-        display: none;
-    }
 }
 
 .sidebar-item {
@@ -23,7 +23,6 @@
         width: 100%;
     }
     .item-title {
-        display: table-cell;
         a {
             @extend %a;
             padding: 10px 32px;
@@ -32,17 +31,10 @@
             display: block;
         }
     }
-    .item-content {
-        vertical-align: top;
-        box-sizing: border-box;
-        margin: 0;
-        width: 100%;
-    }
     .item-icon {
         padding: 0 5px;
     }
     .item-toggle {
-        display: table-cell;
         padding: 10px 16px;
         span {
             display: block;
@@ -59,6 +51,21 @@
 .item {
     transition: background-color 0.3s, color 0.3s;
     cursor: default;
+
+    .item-content {
+        display: table-cell;
+        vertical-align: top;
+        box-sizing: border-box;
+        margin: 0;
+        width: 100%;
+        height: auto;
+    }
+    .item-image {
+        img {
+            max-height: $topbar-height - 19px;
+        }
+    }
+
     &.linked {
         cursor: pointer;
     }
@@ -76,9 +83,5 @@
         display: inline-block;
         text-decoration: none;
         transition: 0.2s;
-    }
-    img {
-        max-height: $topbar-height - 15px;
-        display: inline-block;
     }
 }

@@ -1,19 +1,19 @@
 <!-- Duplicated to avoid empty href which occurs when setting routerLink without a value -->
 
 <div class="item" [ngClass]="barClass" (click)="selected = !selected" [class.linked]="menuItem.href || menuItem.link || menuItem.subitems">
+  <div *ngIf="menuItem.image" class="item-content item-image">
+      <img [src]="menuItem.image">
+  </div>
   <div class="item-content item-title">
-    <img *ngIf="menuItem.image" [src]="menuItem.image">
-    <div>
       <a class="noselect" (click)="click(menuItem)">
         <i *ngIf="placement == 'left'" class="item-icon {{menuItem.icon}}"></i>
         {{menuItem.title}}
         <i *ngIf="placement == 'right'" class="item-icon {{menuItem.icon}}"></i>
       </a>
-    </div>
   </div>
-  <div class="item-content item-toggle" *ngIf="menuItem.subitems && !menuIcon?.disabled">
-    <span class="{{menuIcon?.customClass}}" [class.selected]="selected" [class.rotate]="menuIcon?.rotate ? menuIcon.rotate : true"
-      [innerHTML]="menuIcon ? menuIcon.html : '▼'">
+  <div class="item-content item-toggle" *ngIf="menuItem.subitems && !submenuIcon?.disabled">
+    <span class="{{submenuIcon?.customClass}}" [class.selected]="selected" [class.rotate]="submenuIcon?.rotate ? submenuIcon.rotate : true"
+      [innerHTML]="submenuIcon ? submenuIcon.html : '▼'">
     </span>
   </div>
 </div>

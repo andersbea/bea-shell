@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { MenuItem, MenuIcon } from '@bea-shell/common/objects';
+import { MenuItem, SubmenuIcon } from '@bea-shell/common/objects';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class MenuItemComponent implements OnInit {
 
   @Input('menuItem') menuItem: MenuItem;
-  @Input('menuIcon') menuIcon: MenuIcon;
+  @Input('submenuIcon') submenuIcon: SubmenuIcon;
   @Input('barClass') barClass: string;
 
   placement: string;

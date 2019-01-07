@@ -14,40 +14,39 @@
     padding: 8px 16px;
     width: 100%;
     max-width: 100%;
+
+    display: flex;
+    flex-direction: row;
 }
 
 .left {
-    vertical-align: top;
-    display: table-cell;
     white-space: nowrap;
-    
-    a {
-        @extend %a;
-        display: block;
-
-        padding: 10px 16px;
-        text-decoration: none;
-        cursor: pointer;
-        border-radius: 3px;
-        transition: 0.2s
-    }
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex: 1 1 auto;
 }
 
 .right {
-    vertical-align: top;
-    display: table-cell;
-    text-align: right;
     white-space: nowrap;
-    overflow: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex: 1 1 auto;
+    
+    text-align: right;
 }
 
 menu-icon {
+    display: inline-block;
+    height: 45px;
+}
+menu-icon:not(.alwaysExpandable) {
     display: none;
 }
 
 @media screen and ( max-width: $tablet ){
     .item:not(.logo) { display: none; }
-    menu-icon { 
+    menu-icon,
+    menu-icon:not(.alwaysExpandable) { 
         display: inline-block;
     }
 }   

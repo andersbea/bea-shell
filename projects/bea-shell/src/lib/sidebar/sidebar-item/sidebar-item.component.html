@@ -1,5 +1,5 @@
 <div class="item-group" *ngIf="options">
-    <menu-item [barClass]="'sidebar-item'" [menuItem]="menuItem" [menuIcon]="options?.menuIcon" (click)=select()></menu-item>
+    <menu-item [barClass]="'sidebar-item'" [menuItem]="menuItem" [submenuIcon]="options?.submenuIcon" (click)=select()></menu-item>
     <div class="sub-items" *ngIf="menuItem.subitems" [class.selected]="selected">
         <div *ngFor="let subItem of menuItem.subitems">
             <sidebar-item [options]="options" [menuItem]="subItem"></sidebar-item>

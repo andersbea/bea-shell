@@ -15,14 +15,14 @@ import { BeaShellOptions, MenuItem, TopbarOptions } from '@bea-shell/common/obje
 })
 export class TopbarComponent implements OnInit {
 
-  options: Observable<TopbarOptions>;
+  options: Observable<BeaShellOptions>;
   expanded: Subject<boolean>;
 
   constructor(private beaShell: BeaShellService) { }
 
   ngOnInit() {
     this.options = this.beaShell.onOptionsChange.pipe(
-      map((options: BeaShellOptions) => options.topbar)
+      map((options: BeaShellOptions) => options)
     );
     this.expanded = this.beaShell.onSidebarToggle;
   }
