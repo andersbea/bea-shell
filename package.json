@@ -1,6 +1,6 @@
 {
   "name": "bea-shell-app",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.11.4",
-    "@angular-devkit/build-ng-packagr": "^0.11.3",
+    "@angular-devkit/build-ng-packagr": "^0.11.4",
     "@angular/cli": "^7.1.3",
     "@angular/compiler-cli": "^7.1.3",
     "@angular/language-service": "^7.1.3",
@@ -48,6 +48,7 @@
     "tsickle": ">=0.25.5",
     "tslib": "^1.7.1",
     "tslint": "^5.11.0",
-    "typescript": "^3.1.6"
+    "typescript": "^3.1.6",
+    "webpack-dev-server": ">=3.1.14"
   }
 }
