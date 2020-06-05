@@ -26,7 +26,7 @@ import { MenuItemComponent } from './common/menu-item/menu-item.component';
     SidebarItemComponent,
     TopbarItemComponent,
     ContentComponent,
-    MenuItemComponent, 
+    MenuItemComponent
   ],
   exports: [
     BeaShellComponent
